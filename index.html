@@ -9,6 +9,19 @@
 </head>
 <body>
     <main>
+        <section id="start-sect">
+            <form>
+                <div>
+                    <label for="player1">Player 1</label>
+                    <input type="text" name="player1" id="player1" required>
+                </div>
+                <div>
+                    <label for="player2">Player 2</label>
+                    <input type="text" name="player2" id="player2" required>
+                </div>
+                <button type="submit">Play</button>
+            </form>
+        </section>
         <section id="board">
             <div data-row="0" data-col="0"></div>
             <div data-row="0" data-col="1"></div>
@@ -20,6 +33,14 @@
             <div data-row="2" data-col="1"></div>
             <div data-row="2" data-col="2"></div>
         </section>
+        <section id="score-sect">
+            <p><span id="player-turn"></span>'s turn</p>
+        </section>
+        <dialog>
+            <p id="winner-para"></p>
+            <button type="button" id="restart">Restart</button>
+            <button type="button" id="change-players">Change players</button>
+        </dialog>
     </main>
 </body>
 </html>

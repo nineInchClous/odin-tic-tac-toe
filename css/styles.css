@@ -5,7 +5,7 @@
 }
 
 #board {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 10px;
@@ -14,4 +14,11 @@
   background-color: grey;
   min-width: 50px;
   min-height: 50px;
+}
+
+#score-sect {
+  display: none;
+}
+#score-sect #winner-para {
+  display: none;
 }/*# sourceMappingURL=styles.css.map */
