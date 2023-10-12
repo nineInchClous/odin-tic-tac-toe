@@ -1,28 +1,40 @@
 'use strict';
 
-const GameBoard = function() {
+/**
+ * Create a player object
+ * @param {string} letter 'X' or 'O'
+ * @returns A player object
+ */
+function createPlayer(letter) {
+    return {letter};
+}
+
+const game = function() {
     let board = [
         ['', '', ''],
         ['', '', ''],
         ['', '', '']
     ];
+    const player1 = createPlayer('X');
+    const player2 = createPlayer('O');
+    let currPlayer = player1;
     let xCount = 0;
     let oCount = 0;
 
     /**
      * Play on the board
-     * @param {string} letter Letter to play
      * @param {number} row Row to play
      * @param {number} col Column to play
      * @returns True if the play can be made, otherwise false
      */
-    const play = (letter, row, col) => {
-        if (board[row][col] === '' || row < 0 || row > board.length || col < 0 || col > board[0].length) {
+    const play = (row, col) => {
+        if (board[row][col] !== '' || row < 0 || row > board.length || col < 0 || col > board[0].length) {
             return false;
         }
 
-        board[row][col] = letter.toUpperCase();
-        letter === 'X' ? xCount++ : oCount++;
+        board[row][col] = currPlayer.letter.toUpperCase();
+        currPlayer.letter === 'X' ? xCount++ : oCount++;
+        currPlayer === player1 ? currPlayer = player2 : currPlayer = player1;
         return true;
     };
 
@@ -68,5 +80,37 @@ const GameBoard = function() {
         ];
     };
 
-    return {play, getWinner, resetBoard};
+    /**
+     * Get the board values in an array
+     * @returns The board in an array
+     */
+    const getBoardValues = () => {
+        const boardValues = [];
+        board.forEach(row => {
+            row.forEach(cell => boardValues.push(cell));
+        });
+        console.table(boardValues);
+        return boardValues;
+    };
+
+    return {play, getWinner, resetBoard, getBoardValues};
+}();
+
+const displayController = function() {
+    const cells = document.querySelectorAll('#board div');
+
+    const updateBoard = () => {
+        game.getBoardValues().forEach((value, i) => {
+            cells[i].textContent = value;
+        });
+    };
+
+    cells.forEach(cell => {
+        cell.addEventListener('click', () => {
+            game.play(cell.getAttribute('data-row'), cell.getAttribute('data-col'));
+            updateBoard();
+        });
+    });
+
+    return {};
 }();

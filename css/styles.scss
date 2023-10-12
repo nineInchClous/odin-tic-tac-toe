@@ -3,3 +3,16 @@
 *, *::after, *::before {
     box-sizing: border-box;
 }
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+
+    div {
+        background-color: grey;
+        min-width: 50px;
+        min-height: 50px;
+    }
+}
