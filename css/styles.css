@@ -1,0 +1,5 @@
+@import "normalize.css";
+@import "reset.css";
+*, *::after, *::before {
+  box-sizing: border-box;
+}/*# sourceMappingURL=styles.css.map */
