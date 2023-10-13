@@ -1,24 +1,146 @@
 @import "normalize.css";
 @import "reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300&display=swap");
 *, *::after, *::before {
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Karla", sans-serif;
+}
+
+header {
+  height: 100px;
+  background-color: #222;
+  color: whitesmoke;
+  padding: 20px;
+}
+header h1 {
+  font-size: 3rem;
+}
+
+main {
+  min-height: calc(100vh - 100px - 80px);
+}
+
+#start-sect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#start-sect form {
+  margin-top: 50px;
+}
+#start-sect form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+#start-sect form div label {
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+#start-sect form div input {
+  background-color: #222;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: whitesmoke;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+#start-sect form div input:hover, #start-sect form div input:focus {
+  box-shadow: 2px 2px 2px 0 rgba(51, 51, 51, 0.6);
+}
+
 #board {
   display: none;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(3, 200px);
   gap: 10px;
+  justify-content: center;
+  margin-top: 50px;
 }
 #board div {
-  background-color: grey;
+  background-color: #333;
+  color: whitesmoke;
   min-width: 50px;
   min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 7rem;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px 0 rgba(51, 51, 51, 0.6);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+#board div:hover {
+  background-color: #222;
 }
 
 #score-sect {
   display: none;
+  text-align: center;
+  margin-top: 45px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 200;
 }
-#score-sect #winner-para {
-  display: none;
+
+dialog {
+  padding: 50px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0 rgba(51, 51, 51, 0.6);
+}
+dialog p {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+dialog::backdrop {
+  background-color: rgba(51, 51, 51, 0.6);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  color: whitesmoke;
+  padding: 20px;
+  height: 80px;
+}
+footer svg {
+  width: 30px;
+  margin-left: 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  filter: invert(100);
+}
+footer svg:hover {
+  transform: rotate(360deg) scale(1.1);
+}
+
+button {
+  font-size: 1.3rem;
+  background-color: #222;
+  color: whitesmoke;
+  outline: none;
+  border: 1px solid transparent;
+  padding: 15px 20px;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 60px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+button:hover {
+  background-color: whitesmoke;
+  color: #222;
+  border-color: #222;
 }/*# sourceMappingURL=styles.css.map */

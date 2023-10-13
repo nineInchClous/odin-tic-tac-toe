@@ -176,40 +176,41 @@ const scoreSect = document.getElementById('score-sect');
 const winnerPara = document.getElementById('winner-para');
 const dialog = document.querySelector('dialog');
 
-document.getElementById('restart').addEventListener('click', () => {
+dialog.addEventListener('close', () => {
     board.resetBoard();
     game.resetGame();
     updateBoard();
+});
+document.getElementById('restart').addEventListener('click', () => {
     dialog.close();
 });
 document.getElementById('change-players').addEventListener('click', () => {
-    board.resetBoard();
-    game.resetGame();
-    boardSect.style.display = 'none';
-    scoreSect.style.display = 'none';
-    startSect.style.display = 'block';
     dialog.close();
+    showGame(false);
 });
+
 document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
+
     const player1 = document.getElementById('player1');
     const player2 = document.getElementById('player2');
+
     game.setPlayers(createPlayer(player1.value, 'X'), 
-                    createPlayer(player2.value, 'O'));
+    createPlayer(player2.value, 'O'));
+
     player1.value = '';
     player2.value = '';
+    
     updateBoard();
-    boardSect.style.display = 'grid';
-    scoreSect.style.display = 'block';
-    startSect.style.display = 'none';
+    showGame();
 });
+
 cells.forEach(cell => {
     cell.addEventListener('click', () => {
         if (game.play(cell.getAttribute('data-row'), 
-                cell.getAttribute('data-col'))); {
+        cell.getAttribute('data-col'))); {
             updateBoard();
             const result = game.getWinner();
-            console.log(result);
             if (result !== '') {
                 winnerPara.textContent = result;
                 dialog.showModal();
@@ -219,11 +220,27 @@ cells.forEach(cell => {
 });
 
 /**
- * 
+ * Update the UI board
  */
 function updateBoard() {
     board.getAllBoardValues().forEach((value, i) => {
         cells[i].textContent = value;
     });
     playerNameTurn.textContent = game.getCurrentPlayer().name;
+}
+
+/**
+ * Show the board or the start
+ * @param {boolean} show Show the board if true, otherwise show the start mennu
+ */
+function showGame(show = true) {
+    if (show) {
+        boardSect.style.display = 'grid';
+        scoreSect.style.display = 'block';
+        startSect.style.display = 'none';
+    } else {
+        boardSect.style.display = 'none';
+        scoreSect.style.display = 'none';
+        startSect.style.display = 'flex';
+    }
 }
