@@ -1,17 +1,19 @@
 # Odin Project assignement - Tic Tac Toe
 
+<img src="./img/Screenshot 2023-10-13 091713.png" alt="preview image" height="400px">
+
 ## Useful links
 <a href="https://nineinchclous.github.io/odin-tic-tac-toe/">Preview</a> <br>
 <a href="https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe">The Odin Project assignement</a>
+
+## What I learned
+- Usage of **module pattern** and **factory functions**
+- Usage of **data attributes** on HTML elements
 
 ## Made with
 - ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)   
 - ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)   
 - ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-
-## What I learned
-- Usage of **module pattern** and **factory functions**
-- Usage of **data attributes** on HTML elements
 
 ## Tools used
 - ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
